@@ -34,5 +34,5 @@ class Test_Admin_Portal():
     def test_admin_portal_006(self,admin_page):
         '''Verify the Copyright and Terms'''
         copyright_, terms = admin_page.check_copyright
-        assert "2025" in copyright_ or "©" in copyright_
+        assert "2023" in copyright_ or "©" in copyright_
         assert "Terms" in terms

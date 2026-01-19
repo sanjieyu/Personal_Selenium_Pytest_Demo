@@ -9,14 +9,14 @@ class Test_Standard_Door():
         '''Verify the main elements in the page, should including correct title, Add button and Close button '''
         expected = ('Standard Door Details', 'Add')
         actual  = standard_door.check_door_page
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_002(self, standard_door):
         '''Verify each element for install details'''
         expected = ('Install Type', 'Door Type', 'Design', 'Colour Category', 'Door Colour', 'Door Finish',
                     'Custom Colour', 'Technician Measure', 'Measure Required')
         actual = standard_door.check_install_details
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_003(self, standard_door):
         '''Verify the Install Type dropdown list'''
@@ -26,14 +26,14 @@ class Test_Standard_Door():
 
     def test_standard_door_004(self, standard_door):
         '''Verify the Door Type dropdown list'''
-        assert "Please Select\nExoRoll\nInsulated Sectional\nOptiLift\nOptiRoll\nPanel Lift-Safe" == standard_door.check_door_type
-
+        assert standard_door.check_door_type == ("Please Select\nExoRoll\nInsulated Sectional\nOptiLift\nOptiRoll\n"
+                                                 "Panel Lift-Safe")
 
     def test_standard_door_005(self, standard_door):
         '''Verify the Colour Category dropdown list'''
-        assert (("ColorBond\nColourbond Non Std\nCustom\nFlexigraphic\nFlexographic\nMetalFx\nOilColor\nPainted Finish\n"
+        assert ("ColorBond\nColourbond Non Std\nCustom\nFlexigraphic\nFlexographic\nMetalFx\nOilColor\nPainted Finish\n"
                 "Portabella\nPowderCoatStandard\nPowderCoatUpgrade\nSealedColor\nTimber Essence\nTimberFX") in
-                standard_door.check_colour_category)
+                standard_door.check_colour_category
 
     def test_standard_door_006(self, standard_door):
         '''Verify the Design dropdown for Panel Lift-Safe Door'''
@@ -87,7 +87,7 @@ class Test_Standard_Door():
 
     def test_standard_door_016(self, standard_door):
         '''Verify the Door Colour dropdown for TimberFX Category'''
-        assert "Cedar\nJarrah\nTBA\nWalnut" in standard_door.check_colour_timberfx
+        assert standard_door.check_colour_timberfx == "Cedar\nJarrah\nTBA\nWalnut"
 
     def test_standard_door_017(self, standard_door):
         '''Verify the Custom Colour input box'''
@@ -102,56 +102,56 @@ class Test_Standard_Door():
         expected = ('Opening Size LH', 'Opening Size RH', 'Opening Size Width', 'SR Left', 'HR', 'SR Right',
                     'LHRK (Required if HR is 200-269mm)')
         actual = standard_door.check_size_details
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_020(self, standard_door):
         '''Verify the default value for Opening Size LH, should be "0" '''
-        assert "0" == standard_door.check_openinglh_default
+        assert standard_door.check_openinglh_default == "0"
 
     def test_standard_door_021(self, standard_door):
         '''Verify the default value for Opening Size RH, should be "0" '''
-        assert "0" == standard_door.check_openingrh_default
+        assert standard_door.check_openingrh_default == "0"
 
     def test_standard_door_022(self, standard_door):
         '''Verify the default value for Opening Size Width, should be "0" '''
-        assert "0" == standard_door.check_openingwidth_default
+        assert standard_door.check_openingwidth_default == "0"
 
     def test_standard_door_023(self, standard_door):
         '''Verify the default value for SR Left, should be "0" '''
-        assert "0" == standard_door.check_srleft_default
+        assert standard_door.check_srleft_default == "0"
 
     def test_standard_door_024(self, standard_door):
         '''Verify the default value for HR, should be "0" '''
-        assert "0" == standard_door.check_hr_default
+        assert standard_door.check_hr_default == "0"
 
     def test_standard_door_025(self, standard_door):
         '''Verify the default value for SR Right, should be "0" '''
-        assert "0" == standard_door.check_srright_default
+        assert standard_door.check_srright_default == "0"
 
     def test_standard_door_026(self, standard_door):
         '''Verify the LHRK dropdown, '''
-        assert "FMLHR\nHigh Lift\nVerticle Lift" in standard_door.check_lhrk_list
+        assert standard_door.check_lhrk_list == "FMLHR\nHigh Lift\nVerticle Lift"
 
     def test_standard_door_027(self, standard_door):
         '''Verify each element for Timer/Taper/AdditionalFab details'''
         expected = ('Timber Packers', 'Taper (Max taper 250mm)', 'Additional Fabrication',
                     'Additional Fabrication Required', 'Shop Drawings', 'Lifting/Access Equipment')
         actual = standard_door.check_timber_details
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_028(self, standard_door):
         '''Verify each element for all checkboxes'''
         expected = ('Induction Loop',  'Fully Slotted', 'Emergency Key Release','Reverse Colour', 'Battery Backup',
                     'Eco Smart WiFi')
         actual = standard_door.check_checkboxes_details
-        assert expected == actual, f"Expected:{expected},but got: {actual}"
+        assert actual == expected, f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_029(self, standard_door):
         '''Verify each element for Opener'''
         expected = ('Opener', 'No of Handsets', 'Wall Button', 'Opener Details', 'Digital Keypad',
                     'Internal Push Button','PE Beam','No. of PE Beam Sets')
         actual = standard_door.check_opener_details
-        assert expected == actual, f"Expected:{expected},but got: {actual}"
+        assert actual == expected, f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_030(self, standard_door):
         '''Verify each element for other elements'''
@@ -159,36 +159,35 @@ class Test_Standard_Door():
                     'Lintel Type', 'Fixing Type','IBeam Noggins', 'Remove and Dispose', 'Job Status',
                     'Expected Delivery Date','Cut Date','Paint Date','QC Date','Other Date')
         actual = standard_door.check_other_details
-        assert expected == actual, f"Expected:{expected},but got: {actual}"
+        assert actual == expected, f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_031(self, standard_door):
         '''Verify each element for Aditional Infomation'''
         expected = ('Additional Door Information', 'Production Notes   (0 / 50)')
         actual = standard_door.check_additional_details
-        assert expected == actual, f"Expected:{expected},but got: {actual}"
+        assert actual == expected, f"Expected:{expected},but got: {actual}"
 
     def test_standard_door_032(self, standard_door):
         '''Verify the default options in Door Finish dropdown '''
-        assert "Please Select\nSmooth Texture\nTextured\nWoodgrain Texture" == standard_door.check_default_doorfinish
+        assert standard_door.check_default_doorfinish == "Please Select\nSmooth Texture\nTextured\nWoodgrain Texture"
 
 
     def test_standard_door_033(self, standard_door):
         '''Verify the Door finish option for Classic door '''
-        assert "Please Select\nWoodgrain Texture" == standard_door.check_classic_doorfinish
-
+        assert standard_door.check_classic_doorfinish == "Please Select\nWoodgrain Texture"
 
     def test_standard_door_035(self, standard_door):
         '''Verify the Door finish option for Lincoln door '''
-        assert "Please Select\nWoodgrain Texture" == standard_door.check_lincoln_doorfinish
+        assert standard_door.check_lincoln_doorfinish == "Please Select\nWoodgrain Texture"
 
 
     def test_standard_door_036(self, standard_door):
         '''Verify the Door finish option for Ultraline door '''
-        assert "Please Select\nWoodgrain Texture" == standard_door.check_ultraline_doorfinish
+        assert standard_door.check_ultraline_doorfinish == "Please Select\nWoodgrain Texture"
 
     def test_standard_door_037(self, standard_door):
         '''Verify the Door finish option for Wideline door '''
-        assert "Please Select\nSmooth Texture\nWoodgrain Texture" == standard_door.check_wideline_doorfinish
+        assert standard_door.check_wideline_doorfinish == "Please Select\nSmooth Texture\nWoodgrain Texture"
 
     def test_standard_door_038(self, standard_door):
         '''Verify the reverse colour box status for Panel Lift door, should be disabled'''

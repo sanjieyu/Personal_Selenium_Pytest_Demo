@@ -9,9 +9,9 @@ class Test_Add_Insulated_Door():
 
     def test_add_insulated_door_001(self,add_insulated_door):
         '''Verify the add insulate door function'''
-        expected = ('1   Insulated Sectional, Ribline, Woodgrain Texture, Monument (2010 x 2560)')
+        expected = "1   Insulated Sectional, Ribline, Woodgrain Texture, Monument (2010 x 2560)"
         actual = add_insulated_door.new_added_door
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"
 
     def test_add_insulated_door_002(self,add_insulated_door):
         '''Verify the duplicate button for the new added insulate door'''

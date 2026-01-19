@@ -11,4 +11,4 @@ class Test_Add_Quote_With_Customdoor():
         '''Verify  Add a Quote with a Custom door function'''
         expected = ('Door 1(A1)','Quote')
         actual = add_quote_with_customdoor.verify_new_quote
-        assert expected == actual,f"Expected:{expected},but got: {actual}"
+        assert actual == expected,f"Expected:{expected},but got: {actual}"

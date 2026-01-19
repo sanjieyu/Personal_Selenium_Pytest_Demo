@@ -26,7 +26,7 @@ class Test_Account_Customer():
 
     def test_account_customer_005(self,  account_customer):
         '''Verify each column on this screen'''
-        assert ('Customer Name','Contact Name','Address','Email','Suburb') == account_customer.check_columns
+        assert account_customer.check_columns == ('Customer Name','Contact Name','Address','Email','Suburb')
 
     def test_account_customer_006(self,  account_customer):
         '''Verify the Search function'''
