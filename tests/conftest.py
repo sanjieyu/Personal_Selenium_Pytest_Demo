@@ -1,10 +1,6 @@
 # Author: Yi Sun(Tim) 2023-06-16
 
 import pytest
-import os
-from pathlib import Path
-from selenium import webdriver
-from datetime import datetime
 from utils.read_config import ReadConfig
 
 

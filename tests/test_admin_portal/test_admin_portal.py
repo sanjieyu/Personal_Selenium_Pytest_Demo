@@ -9,14 +9,14 @@ class Test_Admin_Portal():
 
     def test_admin_portal_001(self,admin_page):
         '''Verify the url of Admin login Page'''
-        assert "sighte" in admin_page.get_url.lower()
+        assert "test_sample" in admin_page.get_url.lower()
 
     def test_admin_portal_002(self,admin_page):
         '''Verify the default Sections in Admin login Page'''
         add_menu, list_menu, account_menu = admin_page.check_default_menu
-        assert "ADD" in add_menu
-        assert "LIST" in list_menu
-        assert "ACCOUNT" in account_menu
+        assert "test_sample" in add_menu
+        assert "test_sample" in list_menu
+        assert "test_sample" in account_menu
 
     def test_admin_portal_003(self,admin_page):
         '''Verify the Find Quote in Admin Login page'''

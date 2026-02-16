@@ -12,27 +12,26 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Deal_Portal(AdminPage):
+
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
     '''loc for the dealer portal page'''
-    find_quote_box = (By.XPATH,'//*[@id="search-quote"]')
-    find_quote_btn = (By.XPATH,'//*[@id="search-btn"]/span')
-    account_dealer_loc = (By.XPATH,'//*[@id="logoutForm"]/ul/li/a')
+    find_quote_box = (By.ID,'test_sample')
+    find_quote_btn = (By.Name, 'test_sample')
+    account_dealer_loc = (By.ID,'test_sample')
 
     '''loc for Add btn'''
-    add_dealer_quote_loc = (By.CSS_SELECTOR,"label[for='AddDealer']")
-
     '''loc for Search btn'''
-    list_dealer_quote_loc = (By.CSS_SELECTOR,"label[for='ListDealer']")
-
-
     '''loc for Account menu'''
-    account_name_loc  = (By.CSS_SELECTOR,"label[for='AccountName']")
-    log_off_loc = (By.CSS_SELECTOR,"label[for='LogOff']")
+
 
     @property
     def check_dealer_url(self):
         WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.add_dealer_quote_loc)) #new added
         dealer_url = self.driver.current_url
-        print(dealer_url)
         return dealer_url
 
     @property
@@ -40,39 +39,24 @@ class Deal_Portal(AdminPage):
         add_quote = self.driver.find_element(*self.add_dealer_quote_loc).text
         search_quote = self.driver.find_element(*self.list_dealer_quote_loc).text
         account_menu = self.driver.find_element(*self.account_loc).text
-        print(add_quote,search_quote,account_menu)
         return  add_quote,search_quote,account_menu
 
     @property
     def check_find_dealer_quote(self):
         find_dealer_quote = self.driver.find_element(*self.find_quote_box)
         if find_dealer_quote.is_displayed():
-            print('true')
             return  True
         else:
-            print('false')
             return False
-
-    @property
-    def check_account_menu(self):
-        self.driver.find_element(*self.account_loc).click()
-        account_name = self.driver.find_element(*self.account_name_loc).text
-        logoff = self.driver.find_element(*self.log_off_loc).text
-        print(account_name,logoff)
-        return  account_name,logoff
 
 
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http://xxxx/")
+    driver.get("http://test_sample/")
     driver.implicitly_wait(10)
 
     login = Deal_Portal(driver)
-    login.typeUserName('sss@exxx.com')
-    login.typePassword('xxxx!')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample!')
     login.clickLogin()
-    login.check_dealer_url
-    login.check_default_values
-    login.check_find_dealer_quote
-    login.check_account_menu

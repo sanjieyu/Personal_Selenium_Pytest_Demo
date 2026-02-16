@@ -131,8 +131,8 @@ class SendReportUI:
             smtp.starttls()
             print('Connected to SMTP server successfully!')
 
-            user = 'aaaa@aaaa.com'
-            password = 'xxxxxx'
+            user = 'test_sample'
+            password = 'test_sample'
             smtp.login(user, password)
             print('Start to send')
             smtp.sendmail(sender, receiver, msg.as_string())
@@ -147,9 +147,9 @@ class SendReportUI:
 
 def run_tests_and_send_report():
 
-    test_dir_ui = "xxxxxx\\UITestCase"
-    allure_results_dir = "xxxxx\\Report\\UI\\allure-results"
-    allure_report_dir = "xxxxx\\Report\\UI\\allure-report"
+    test_dir_ui = "test_sample"
+    allure_results_dir = "test_sample"
+    allure_report_dir = "test_sample"
 
     os.makedirs(allure_results_dir, exist_ok=True)
     os.makedirs(allure_report_dir, exist_ok=True)

@@ -3,7 +3,7 @@
 import pytest
 import os
 from pages.add_quote_with_custom_door import Add_Quote_With_CustomDoor
-from pages.custom_door import *
+from pages.custom import Custom_Door
 from pages.add_custom_door import Add_Custom_Door
 from tests.conftest import credentials,driver
 

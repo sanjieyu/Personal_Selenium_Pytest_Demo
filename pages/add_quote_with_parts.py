@@ -12,13 +12,16 @@ from pages.add_custom_door import Add_Custom_Door
 
 class Add_Quote_With_CustomDoor(Add_Custom_Door):
 
-    proposal_number_loc = (By.ID,'ProposalNo')
-    find_quote_input = (By.ID,'search-quote')
-    find_quote_btn = (By.ID,'search-btn')
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
+    proposal_number_loc = (By.ID,'test_sample')
+    find_quote_input = (By.ID,'test_sample')
+    find_quote_btn = (By.ID,'test_sample')
 
-    searched_proposal_no_loc = (By.CSS_SELECTOR, "a.dark-text[href^='/Quote/Edit/']")
-    searched_door_no_loc = (By.XPATH, "//span[text()='Door 1(A1)']")
-    searched_door_status_loc = (By.XPATH, "//span[text()='Quote']")
+    # [Remaining 5+ locators redacted for confidentiality]
 
 
     def __init__(self,driver):
@@ -30,14 +33,12 @@ class Add_Quote_With_CustomDoor(Add_Custom_Door):
         self.add_quote.go_addquote()
         self.add_custom_door.go_addcustomdoor()
         self.add_custom_door.add_custom_detail()
-        sleep(2)
         self.add_quote.check_add_quote_success
 
     @property
     def get_proposal_number(self):
         global proposal_number
         proposal_number = self.driver.find_element(*self.proposal_number_loc).get_attribute('value')
-        print('number is:',proposal_number)
         return proposal_number
 
     def search_new_quote(self):
@@ -51,17 +52,16 @@ class Add_Quote_With_CustomDoor(Add_Custom_Door):
         searched_proposal_no = self.driver.find_element(*self.searched_proposal_no_loc).text
         searched_door_no = self.driver.find_element(*self.searched_door_no_loc).text
         searched_door_status = self.driver.find_element(*self.searched_door_status_loc).text
-        print(searched_door_no,searched_door_status)
         return searched_door_no,searched_door_status
 
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
     driver.implicitly_wait(10)
-    driver.get("http://xxxx/")
+    driver.get("http://test_sample/")
     page = Add_Quote_With_CustomDoor(driver)
-    page.typeUserName('xx@xxx.com.au')
-    page.typePassword('xxxxxx')
+    page.typeUserName('test_sample')
+    page.typePassword('test_sample')
     page.clickLogin()
     page.add_custom_door_fun()
     page.get_proposal_number

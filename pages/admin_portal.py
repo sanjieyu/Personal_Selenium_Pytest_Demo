@@ -11,63 +11,30 @@ from pages.login_admin import Admin_Portal
 
 class AdminPage(Admin_Portal):
 
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
     '''loc for default values in this page'''
-    eco_icon_loc = (By.XPATH,'/html/body/div[2]/div/div[1]/a/img')
-    add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/a')
-    list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/a')
-    findquote_box_loc = (By.ID,'search-quote')
-    findquote_button_loc= (By.ID, 'btnFindQuote')
-    findaddress_box_loc = (By.ID,'search-address')
-    findaddress_button_loc= (By.ID, 'btnFindAddress')
-    findclient_box_loc = (By.ID,'search-client')
-    findclient_button_loc= (By.ID, 'btnFindClient')
+    eco_icon_loc = (By.ID,'test_sample')
+    add_loc = (By.CSS_SELECTOR, 'test_sample')
+    list_loc = (By.NAME,'test_sample')
 
-    account_loc = (By.CSS_SELECTOR, "[aria-label='account']")
-    copyright_loc = (By.CSS_SELECTOR, "[aria-label='copyright']")
-    terms_loc = (By.CSS_SELECTOR, "[aria-label='terms']")
-
+    # [Remaining 30+ locators redacted for confidentiality]
     '''Add Menu'''
-    quote_add_loc = (By.CSS_SELECTOR,"[aria-label='quote_add']")
-    lead_add_loc = (By.CSS_SELECTOR,"[aria-label='lead_add']")
-    account_add_loc = (By.CSS_SELECTOR,"[aria-label='account_add']")
-    installer_add_loc = (By.CSS_SELECTOR,"[aria-label='installer_add']")
-
     '''List Menu'''
-    quote_list_loc = (By.ID,'quotelist)')
-    services_list_loc = (By.ID,'servicelist')
-    account_list_loc = (By.ID,'accountlist')
-    report_list_loc = (By.ID,'reportlist)
-    installer_list_loc = (By.ID,'installerlist')
-    myob_list_loc = (By.ID,'myoblist')
-    jobaccept_list_loc = (By.ID,'jobacceptlist')
-    onhold_list_loc = (By.ID,'onholdlist')
-    neworder_list_loc = (By.ID,'neworderlist')
-    production_list_loc = (By.ID,'productionlist')
-    productionWA_list_loc = (By.ID, 'walist')
-    schedule_list_loc = (By.ID,'schedulelist')
-    pipeline_list_loc = (By.ID,'pipelinelist')
-    activepipeline_list_loc = (By.ID, 'activepipelinelist')
-
     '''Account Menu'''
-    changepwd_loc = (By.ID,'pwdchange')
-    updateprofile_loc = (By.ID,'profileupdate)
-    updateemail_loc = (By.ID, 'emailupdate')
-    usermanage_loc = (By.ID, 'usermanager')
-    travel_area_loc = (By.ID,'travelarea')
-    rollcycle_loc = (By.ID 'rollcycle')
-    rollcycle_panellift_loc = (By.ID,'rollcyclepanel')
-    rollcycle_rollerdoors_loc = (By.ID,'rollcycleroll')
-    rollcycle_optiliftdoors_loc = (By.ID,'rollcycleoptilift')
-    rollcycle_optirolldoors_loc = (By.ID, 'rollcycleoptiroll')
-    sms_loc = (By.ID,'sms')
-    logoff_loc = (By.ID, 'logoff')
+    '''Add Menu'''
+    '''List Menu'''
+    '''Account Menu'''
+
 
     @property
     def get_url(self):
         WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.copyright_loc)
         )
-        print(self.driver.current_url)
         return self.driver.current_url
 
     @property
@@ -101,10 +68,10 @@ if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.maximize_window()
     driver.implicitly_wait(10)
-    driver.get("http://xxxxx.com/")
+    driver.get("http://test_sample")
     page = AdminPage(driver)
-    page.typeUserName('xx@xx.com.au')
-    page.typePassword('xxxxx')
+    page.typeUserName('test_sample')
+    page.typePassword('test_sample')
     page.clickLogin()
-    page.get_url  # 只测试这一个功能
+    page.get_url
     driver.quit()

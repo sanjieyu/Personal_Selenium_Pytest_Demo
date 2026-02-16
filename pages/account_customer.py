@@ -10,16 +10,18 @@ from pages.admin_portal import AdminPage
 from time import sleep
 
 class Account_Customer(AdminPage):
-    '''Modified class with locators as class variables'''
-    account_title_loc = (By.CSS_SELECTOR, 'h1.header')
-    account_searchbtn_loc = (By.CSS_SELECTOR, 'button.btn-primary')
-    account_searchbox_loc = (By.ID, 'searchCustomerName')
-    customer_name_loc = (By.XPATH, "//span[text()='Customer Name']")
-    contact_name_loc = (By.XPATH, "//span[text()='Contact Name']")
-    address_loc = (By.XPATH, "//span[text()='Address']")
-    email_loc = (By.XPATH, "//span[text()='Email']")
-    suburb_loc = (By.XPATH, "//span[text()='Suburb']")
-    search_result_name_loc = (By.CSS_SELECTOR, "a[href*='/Customer/Edit/']")
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
+
+    '''loc for the Account Customer page'''
+    account_title_loc = (By.CSS_SELECTOR, 'test_sample')
+    account_searchbtn_loc = (By.CSS_SELECTOR, 'test_sample')
+    account_searchbox_loc = (By.ID, 'test_sample')
+
+    # [Remaining 10+ locators redacted for confidentiality]
 
     def goto_account_customer(self):
         '''Go to account customer screen'''
@@ -31,14 +33,12 @@ class Account_Customer(AdminPage):
     def check_accountcustomer_url(self):
         '''Check the url'''
         account_customer_url = self.driver.current_url
-        print(account_customer_url)
         return account_customer_url
 
     @property
     def check_accountcustomer_title(self):
         '''Check the title'''
         account_customer_title = self.driver.find_element(*self.account_title_loc).text
-        print(account_customer_title)
         return  account_customer_title
 
     @property
@@ -46,10 +46,8 @@ class Account_Customer(AdminPage):
         '''Check the search button'''
         account_btn = self.driver.find_element(*self.account_searchbtn_loc)
         if account_btn.is_displayed:
-            print('is there')
             return True
         else:
-            print('not there')
             return False
 
     @property
@@ -69,7 +67,6 @@ class Account_Customer(AdminPage):
         address = self.driver.find_element(*self.address_loc).text
         email = self.driver.find_element(*self.email_loc).text
         suburb = self.driver.find_element(*self.suburb_loc).text
-        print(customer_name,contact_name,address,email,suburb)
         return customer_name,contact_name,address,email,suburb
 
     @property
@@ -78,17 +75,16 @@ class Account_Customer(AdminPage):
         self.driver.find_element(*self.account_searchbox_loc).send_keys('tim2')
         self.driver.find_element(*self.account_searchbtn_loc).click()
         search_result_name = self.driver.find_element(*self.search_result_name_loc).text
-        print(search_result_name)
         return search_result_name
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.maximize_window()
+    driver.get("http://test_sample")
     driver.implicitly_wait(10)
-    driver.get("http://xxxx/")
-    page = Account_Customer(driver)
-    page.typeUserName('xxxx@xxxx.com.au')
-    page.typePassword('xxxx')
-    page.clickLogin()
-    page.check_accountcustomer_url
-    driver.quit()
+
+    login = Account_Customer(driver)
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
+    login.clickLogin()
+    login.goto_account_customer

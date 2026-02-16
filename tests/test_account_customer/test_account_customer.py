@@ -10,11 +10,11 @@ class Test_Account_Customer():
 
     def test_account_customer_001(self,account_customer):
         '''Verify the url'''
-        assert "Customer/List" in account_customer.check_accountcustomer_url
+        assert "test_sample" in account_customer.check_accountcustomer_url
 
     def test_account_customer_002(self,  account_customer):
         '''Verify the title'''
-        assert "Account Customers Search" in account_customer.check_accountcustomer_title
+        assert "test_sample" in account_customer.check_accountcustomer_title
 
     def test_account_customer_003(self,  account_customer):
         '''Verify the search button'''
@@ -26,9 +26,9 @@ class Test_Account_Customer():
 
     def test_account_customer_005(self,  account_customer):
         '''Verify each column on this screen'''
-        assert account_customer.check_columns == ('Customer Name','Contact Name','Address','Email','Suburb')
+        assert account_customer.check_columns == ('test_sample','test_sample','test_sample','test_sample','test_sample')
 
     def test_account_customer_006(self,  account_customer):
         '''Verify the Search function'''
-        assert "tim2 with priced items" in account_customer.check_search_result
+        assert "test_sample" in account_customer.check_search_result
 

@@ -1,8 +1,8 @@
-# Author:Yi Sun(Tim) 2023-9-16
+# Author:Yi Sun(Tim) 2023-4-16
 
 import pytest
 import os
-from pages.add_insulated_door import Add_Insulated_Door
+from pages.standard import Standard_Door
 from tests.conftest import credentials,driver
 
 
@@ -20,12 +20,11 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(f"screenshots/{item.name}.png")
 
 @pytest.fixture(scope="class")
-def add_insulated_door(driver,credentials):
-    add_insulated_door = Add_Insulated_Door(driver)
-    add_insulated_door.typeUserName(credentials["admin_username"])
-    add_insulated_door.typePassword(credentials["admin_password"])
-    add_insulated_door.clickLogin()
-    add_insulated_door.go_addquote()
-    add_insulated_door.go_addstandarddoor()
-    add_insulated_door.add_insulated_door()
-    return add_insulated_door
+def standard_door(driver,credentials):
+    standard_door = Standard_Door(driver)
+    standard_door.typeUserName(credentials["admin_username"])
+    standard_door.typePassword(credentials["admin_password"])
+    standard_door.clickLogin()
+    standard_door.go_addquote()
+    standard_door.go_addstandarddoor()
+    return standard_door

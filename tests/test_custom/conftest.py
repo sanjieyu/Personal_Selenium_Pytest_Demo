@@ -2,7 +2,7 @@
 
 import pytest
 import os
-from pages.add_custom_door import Add_Custom_Door
+from pages.custom import Custom_Door
 from tests.conftest import credentials,driver
 
 
@@ -20,11 +20,11 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(f"screenshots/{item.name}.png")
 
 @pytest.fixture(scope="class")
-def add_custom_door(driver,credentials):
-    add_custom_door = Add_Custom_Door(driver)
-    add_custom_door.typeUserName(credentials["admin_username"])
-    add_custom_door.typePassword(credentials["admin_password"])
-    add_custom_door.clickLogin()
-    add_custom_door.go_addquote()
-    add_custom_door.go_addcustomdoor()
-    return add_custom_door
+def custom_door(driver,credentials):
+    custom_door = Custom_Door(driver)
+    custom_door.typeUserName(credentials["admin_username"])
+    custom_door.typePassword(credentials["admin_password"])
+    custom_door.clickLogin()
+    custom_door.go_addquote()
+    custom_door.go_addcustomdoor()
+    return custom_door
