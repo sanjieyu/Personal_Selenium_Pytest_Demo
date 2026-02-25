@@ -5,6 +5,7 @@
 import pytest
 from pages.dealer_portal import *
 
+@pytest.mark.p2
 class Test_Dealer_Portal():
 
     def test_dealer_portal_ui_001(self,dealer_portal):

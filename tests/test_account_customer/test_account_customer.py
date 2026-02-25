@@ -6,6 +6,7 @@
 import pytest
 from pages.account_customer import Account_Customer
 
+@pytest.mark.p1
 class Test_Account_Customer():
 
     def test_account_customer_001(self,account_customer):

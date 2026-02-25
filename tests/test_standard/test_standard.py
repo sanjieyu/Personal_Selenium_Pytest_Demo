@@ -3,6 +3,7 @@
 import pytest
 from pages.standard import Standard_Door
 
+@pytest.mark.p1
 class Test_Standard_Door():
 
     def test_standard_door_001(self,standard_door):
@@ -48,8 +49,6 @@ class Test_Standard_Door():
     def test_standard_door_010(self, standard_door):
         '''Verify the Door Colour dropdown for Custom Category, should be disabled'''
         assert standard_door.check_colour_custom is True
-
-
 
     def test_standard_door_019(self, standard_door):
         '''Verify each element for size details,'''

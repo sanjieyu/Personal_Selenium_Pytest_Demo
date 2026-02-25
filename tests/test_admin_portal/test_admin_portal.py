@@ -5,6 +5,7 @@
 import pytest
 from pages.admin_portal import AdminPage
 
+@pytest.mark.p0
 class Test_Admin_Portal():
 
     def test_admin_portal_001(self,admin_page):
